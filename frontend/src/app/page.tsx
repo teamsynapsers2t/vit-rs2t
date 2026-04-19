@@ -16,19 +16,7 @@ import {
   Shield,
   Landmark
 } from "lucide-react";
-import { 
-  PieChart, 
-  Pie, 
-  Cell, 
-  Tooltip, 
-  ResponsiveContainer,
-  BarChart,
-  Bar,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Legend
-} from "recharts";
+
 
 // Animation Variants
 const fadeInUp: any = {
@@ -57,19 +45,7 @@ const historicalData = [
   { year: "25-26", Capex: 11.5, Welfare: 4.1 },
 ];
 
-const CustomTooltip = ({ active, payload }: any) => {
-  if (active && payload && payload.length) {
-    return (
-      <div className="bg-white/95 backdrop-blur-md p-4 rounded-xl border border-slate-100 shadow-[0_10px_40px_rgba(0,0,0,0.1)]">
-        <p className="font-bold text-slate-900 mb-1">{payload[0].name}</p>
-        <p className="text-xl font-black" style={{ color: payload[0].payload.color }}>
-          ₹{payload[0].value}L Cr
-        </p>
-      </div>
-    );
-  }
-  return null;
-};
+
 
 export default function Home() {
   const { isSignedIn } = useAuth();
@@ -147,7 +123,7 @@ export default function Home() {
             </motion.p>
 
             <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-4">
-              <Link href="/sign-up" className="flex items-center justify-center gap-3 bg-gradient-to-r from-orange-500 to-rose-500 text-white px-8 py-5 rounded-2xl font-bold text-lg shadow-[0_10px_40px_rgba(249,115,22,0.3)] hover:scale-[1.02] transition-transform w-full sm:w-auto ring-4 ring-orange-500/20">
+              <Link href="/sign-in?redirect_url=/public" className="flex items-center justify-center gap-3 bg-gradient-to-r from-orange-500 to-rose-500 text-white px-8 py-5 rounded-2xl font-bold text-lg shadow-[0_10px_40px_rgba(249,115,22,0.3)] hover:scale-[1.02] transition-transform w-full sm:w-auto ring-4 ring-orange-500/20">
                 👥 I am a Citizen of India
               </Link>
               <Link href="/gov-sign-up" className="flex items-center justify-center gap-3 bg-white/80 backdrop-blur-md border-2 border-teal-600 text-teal-700 px-8 py-5 rounded-2xl font-bold text-lg shadow-lg hover:bg-teal-50 transition-colors w-full sm:w-auto">
@@ -177,32 +153,14 @@ export default function Home() {
                  </div>
                </div>
 
-               {/* Recharts Pie Donut */}
-               <div className="w-full h-[320px] relative z-10">
-                 <ResponsiveContainer width="100%" height="100%">
-                   <PieChart>
-                     <Tooltip content={<CustomTooltip />} cursor={{fill: 'transparent'}} />
-                     <Pie
-                       data={budgetData}
-                       cx="50%"
-                       cy="50%"
-                       innerRadius={80}
-                       outerRadius={120}
-                       paddingAngle={4}
-                       dataKey="value"
-                       stroke="none"
-                     >
-                       {budgetData.map((entry, index) => (
-                         <Cell key={`cell-${index}`} fill={entry.color} className="hover:opacity-80 transition-opacity duration-300" />
-                       ))}
-                     </Pie>
-                   </PieChart>
-                 </ResponsiveContainer>
-                 {/* Center Total Output */}
-                 <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
-                    <span className="text-3xl font-black text-slate-900 leading-none">₹50.65<span className="text-xl">L</span></span>
-                    <span className="text-xs font-bold text-slate-400">CRORES</span>
-                 </div>
+               {/* Custom Data Donut Replacement */}
+               <div className="w-full h-[280px] relative z-10 flex flex-col items-center justify-center p-6 border-4 border-slate-100 rounded-full mx-auto" style={{ width: '280px' }}>
+                  <div className="absolute inset-0 border-4 border-orange-500 rounded-full animate-[spin_10s_linear_infinite] opacity-20 border-t-transparent border-l-transparent pointer-events-none"></div>
+                  <span className="text-4xl font-black text-slate-900 leading-none">₹50.65<span className="text-xl">L</span></span>
+                  <span className="text-sm font-bold text-slate-400 mt-1">CRORES</span>
+                  <div className="mt-4 text-center">
+                    <span className="text-xs font-bold text-emerald-600 bg-emerald-50 px-2 py-1 rounded-full">100% Accounted</span>
+                  </div>
                </div>
 
                <div className="w-full mt-4 flex flex-col gap-3 relative z-10 border-t border-slate-200/60 pt-6">
@@ -381,21 +339,22 @@ export default function Home() {
                 <p className="text-slate-600 text-[15px] leading-relaxed font-medium mb-6">
                   We compare current allocations with previous years’ actual spending so the same mistakes are not repeated and execution improves year after year.
                 </p>
-                <div className="flex-1 w-full min-h-[200px] h-full relative -ml-4">
-                  <ResponsiveContainer width="100%" height="100%">
-                    <BarChart data={historicalData} margin={{ top: 10, right: 0, left: -20, bottom: 0 }}>
-                      <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#E2E8F0" />
-                      <XAxis dataKey="year" axisLine={false} tickLine={false} tick={{ fontSize: 12, fill: '#64748B', fontWeight: 600 }} />
-                      <YAxis axisLine={false} tickLine={false} tick={{ fontSize: 10, fill: '#94A3B8' }} />
-                      <Tooltip 
-                        cursor={{fill: 'transparent'}}
-                        contentStyle={{ borderRadius: '12px', border: 'none', boxShadow: '0 10px 25px rgba(0,0,0,0.08)', fontWeight: 'bold' }}
-                      />
-                      <Legend iconType="circle" wrapperStyle={{ fontSize: '12px', fontWeight: 'bold', paddingTop: '10px' }} />
-                      <Bar dataKey="Capex" fill="#f97316" radius={[4, 4, 0, 0]} barSize={20} />
-                      <Bar dataKey="Welfare" fill="#f43f5e" radius={[4, 4, 0, 0]} barSize={20} />
-                    </BarChart>
-                  </ResponsiveContainer>
+                <div className="flex-1 w-full space-y-4 relative -ml-4 pl-4 pt-4">
+                  {historicalData.map((data, idx) => (
+                    <div key={idx} className="w-full">
+                      <div className="text-xs font-bold text-slate-500 mb-1">{data.year}</div>
+                      <div className="flex gap-2 h-6 w-full">
+                         {/* Capex Bar */}
+                         <div className="h-full bg-orange-500 rounded-md transition-all flex items-center justify-end pr-2 text-[10px] font-bold text-white shadow-sm" style={{ width: `${(data.Capex / 15) * 100}%` }}>{data.Capex}L</div>
+                         {/* Welfare Bar */}
+                         <div className="h-full bg-rose-500 rounded-md transition-all flex items-center justify-end pr-2 text-[10px] font-bold text-white shadow-sm" style={{ width: `${(data.Welfare / 15) * 100}%` }}>{data.Welfare}L</div>
+                      </div>
+                    </div>
+                  ))}
+                  <div className="flex items-center gap-4 mt-6 text-xs font-bold text-slate-500">
+                    <div className="flex items-center gap-1"><span className="w-3 h-3 rounded-full bg-orange-500"></span> Capex</div>
+                    <div className="flex items-center gap-1"><span className="w-3 h-3 rounded-full bg-rose-500"></span> Welfare</div>
+                  </div>
                 </div>
             </motion.div>
 

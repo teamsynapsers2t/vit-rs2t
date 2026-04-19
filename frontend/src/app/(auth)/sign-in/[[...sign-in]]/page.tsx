@@ -8,7 +8,7 @@ export default function Page() {
       <div className="absolute bottom-[-10%] left-[-10%] w-[60%] h-[60%] rounded-full bg-teal-400/20 blur-[120px] mix-blend-multiply pointer-events-none" />
       
       <div className="relative z-10 w-full max-w-md p-4">
-        <SignIn appearance={{
+        <SignIn fallbackRedirectUrl="/public" appearance={{
           elements: {
             formButtonPrimary: "bg-teal-600 hover:bg-teal-700 text-white",
             card: "shadow-[0_20px_60px_rgba(0,0,0,0.06)] rounded-3xl border border-slate-100",

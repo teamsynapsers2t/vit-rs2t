@@ -10,9 +10,12 @@
   },
   "dependencies": {
     "@clerk/nextjs": "^7.2.3",
+    "@google/genai": "^1.50.1",
+    "@prisma/client": "^7.7.0",
     "framer-motion": "^12.38.0",
     "lucide-react": "^1.8.0",
     "next": "16.2.4",
+    "prisma": "^7.7.0",
     "react": "19.2.4",
     "react-dom": "19.2.4",
     "recharts": "^3.8.1"

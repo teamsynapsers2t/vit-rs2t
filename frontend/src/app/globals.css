@@ -5,11 +5,15 @@
   --color-sage: #2E5E45;
   --color-mint: #E8F4ED;
   --color-accent: #4CAF7D;
+  --color-warning: #F5A623;
+  --color-alert: #E05252;
   --color-off-white: #F5F9F6;
   --color-dark-text: #1A2E24;
+  --color-blue-info: #2E8B8B;
 
   --font-sans: var(--font-dmsans), ui-sans-serif, system-ui, sans-serif;
   --font-serif: var(--font-playfair), ui-serif, Georgia, serif;
+  --font-mono: var(--font-dmmono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
 :root {

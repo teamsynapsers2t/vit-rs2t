@@ -1,0 +1,35 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model AllocationRecord {
+  id                    Int      @id @default(autoincrement())
+  
+  // High-Level Data
+  targetState           String
+  totalBudget           Float
+  
+  // Comprehensive 11-Sector Allocation Map (Values in Crore)
+  healthAmount          Float
+  educationAmount       Float
+  agricultureAmount     Float
+  infrastructureAmount  Float
+  ruralDevAmount        Float
+  defenceAmount         Float
+  socialWelfareAmount   Float
+  waterAmount           Float
+  energyAmount          Float
+  urbanAmount           Float
+  adminAmount           Float
+  
+  // Genuine AI Intelligence Logs
+  aiExecutiveAnalysis   String   @db.Text
+  
+  // Timely Record Data
+  createdAt             DateTime @default(now())
+}
