@@ -81,7 +81,7 @@ export default function CitizenShell() {
             <div className="w-8 h-8 rounded-full bg-[#1C3A2F] flex items-center justify-center">
               <Landmark className="w-4 h-4 text-[#4CAF7D]" />
             </div>
-            <h1 className="font-serif font-bold text-xl text-[#1C3A2F] hidden sm:block">OptiIndia</h1>
+            <h1 className="font-serif font-bold text-xl text-[#1C3A2F] hidden sm:block">Connect</h1>
           </div>
 
           {/* Desktop Tabs */}

@@ -122,7 +122,7 @@ export default function DashboardShell() {
       {/* Sidebar - Fix: 260px wide, #1C3A2F bg */}
       <aside className="w-[260px] bg-[#1C3A2F] text-[#F5F9F6] flex flex-col shrink-0 hidden md:flex z-20">
         <div className="p-6">
-          <h1 className="font-serif font-bold text-2xl text-white tracking-wide">OptiIndia</h1>
+          <h1 className="font-serif font-bold text-2xl text-white tracking-wide">Connect</h1>
           <p className="text-[10px] text-[#4CAF7D] uppercase tracking-widest mt-1 font-bold">Budget Optimizer 2026-27</p>
         </div>
 

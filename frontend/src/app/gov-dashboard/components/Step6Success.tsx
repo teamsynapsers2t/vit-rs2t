@@ -37,7 +37,7 @@ export default function Step6Success() {
     const encodedUri = encodeURI(csvContent);
     const link = document.createElement("a");
     link.setAttribute("href", encodedUri);
-    link.setAttribute("download", "OptiIndia_Master_Budget_Report_2026_27.csv");
+    link.setAttribute("download", "Connect_Master_Budget_Report_2026_27.csv");
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);

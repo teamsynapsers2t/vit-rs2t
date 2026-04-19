@@ -27,7 +27,7 @@ export default function AIInfoPage({
          // We'll mock the stream effect
          setTimeout(() => {
             let markdownMock = "## Strategic AI Recommendations\n\n";
-            markdownMock += `The OptiIndia allocation engine has reviewed historical spending, local population data, and key infrastructure needs for **${districtName || stateName}** over the last 5 years.\n\n`;
+            markdownMock += `The Connect allocation engine has reviewed historical spending, local population data, and key infrastructure needs for **${districtName || stateName}** over the last 5 years.\n\n`;
             
             if (sectorName) {
                markdownMock += `### Why ${sectorName} Needs Attention\n`;

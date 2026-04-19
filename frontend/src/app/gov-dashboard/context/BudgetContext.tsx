@@ -57,7 +57,7 @@ export function BudgetProvider({ children }: { children: React.ReactNode }) {
   // Reset entirely on logout for fresh demo capabilities
   useEffect(() => {
     if (isLoaded && isSignedIn === false) {
-      localStorage.removeItem('optiindia_budget');
+      localStorage.removeItem('connect_budget');
       setStatesData(getInitialStates());
       setProblems(INITIAL_PROBLEMS.map(p => ({ ...p, votes: 0, trending: false })) as Problem[]);
       setCitizenVotes([]);

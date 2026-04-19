@@ -21,7 +21,7 @@ const dmMono = DM_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "OptiIndia - India's Public Budget Optimizer",
+  title: "Connect - India's Public Budget Optimizer",
   description: "See exactly how India's Union Budget is being allocated.",
 };
 

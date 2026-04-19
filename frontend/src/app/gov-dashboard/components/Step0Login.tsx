@@ -26,7 +26,7 @@ export default function Step0Login({ onLogin }: { onLogin: () => void }) {
       >
         <div className="flex flex-col items-center mb-10">
           <h1 className="font-serif text-[42px] text-[#1C3A2F] font-bold tracking-tight text-center leading-none">
-            OptiIndia
+            Connect
           </h1>
           <h2 className="font-serif text-xl text-[#2E5E45] mt-6 font-bold text-center">
             Government Official Portal
